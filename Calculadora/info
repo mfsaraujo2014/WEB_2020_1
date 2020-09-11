@@ -1,0 +1,25 @@
+void Numero::adicaoNumero(){
+    int op1, op2;
+    cout << "Informe a quantidade de unidades do primeiro operando: ";
+    cin >> op1;
+    cout << "Informe a quantidade de unidades do segundo operando: ";
+    cin >> op2;
+    Numero* aux1 = adicionaNumero(op1);
+    Numero* aux2 = adicionaNumero(op2);
+    if(op1 >= op2){
+        for(int i = aux1->tamanho; i >= 0; i--){
+            Digito* dig1 = obterDigitoEm(i);
+            for(int j = aux2->tamanho; j >= 0; j--){
+              Digito* dig2 = obterDigitoEm(j);
+              int resultado = dig1->valor + dig2->valor;
+              if(resultado >= 10){
+                  int result = dig1->valor / dig2->valor;
+                  int resto = dig1->valor % dig2->valor;
+                  inserirLista(result);
+              }
+            }
+            
+        }
+    }
+
+}
